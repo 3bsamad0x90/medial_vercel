@@ -412,4 +412,6 @@ return [
     'productOptions' => 'خيارات المنتجات',
     'FailedToAddToCart' => 'فشل في إضافة المنتج إلى السلة',
     'AddedToCartSuccessfully' => 'تمت إضافة المنتج إلى السلة بنجاح',
+    'siteDescription_ar' => 'وصف الموقع بالعربية',
+    'siteDescription_en' => 'وصف الموقع بالإنجليزية',
 ];

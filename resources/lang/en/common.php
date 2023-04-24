@@ -336,5 +336,7 @@ return [
     'category' => 'Category',
   'FailedToAddToCart' => 'Failed to add to cart',
   'AddedToCartSuccessfully' => 'Added to cart successfully',
+    'siteDescription_ar' => 'Site Description in Arabic',
+    'siteDescription_en' => 'Site Description in English',
 
 ];

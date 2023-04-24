@@ -12,8 +12,12 @@
         {{Form::text('siteTitle_en',getSettingValue('siteTitle_en'),['id'=>'siteTitle_en','class'=>'form-control'])}}
     </div>
     <div class="col-12 col-md-12">
-        <label class="form-label" for="siteDescription">{{trans('common.siteDescription')}}</label>
-        {{Form::textarea('siteDescription',getSettingValue('siteDescription'),['rows'=>'3','id'=>'siteDescription','class'=>'form-control'])}}
+        <label class="form-label" for="siteDescription_ar">{{trans('common.siteDescription_ar')}}</label>
+        {{Form::textarea('siteDescription_ar',getSettingValue('siteDescription_ar'),['rows'=>'3','id'=>'siteDescription_ar','class'=>'form-control editor_ar'])}}
+    </div>
+    <div class="col-12 col-md-12">
+        <label class="form-label" for="siteDescription_en">{{trans('common.siteDescription_en')}}</label>
+        {{Form::textarea('siteDescription_en',getSettingValue('siteDescription_en'),['rows'=>'3','id'=>'siteDescription_en','class'=>'form-control editor_en'])}}
     </div>
 
 </div>
