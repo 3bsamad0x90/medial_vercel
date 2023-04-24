@@ -71,19 +71,6 @@ function panelLangMenu()
             'lang' => 'en'
         ];
     }
-    if (Session::get('Lang') != 'fr') {
-        $list[] = [
-            'flag' => 'fr',
-            'text' => trans('common.lang3Name'),
-            'lang' => 'fr'
-        ];
-    } else {
-        $selected = [
-            'flag' => 'fr',
-            'text' => trans('common.lang3Name'),
-            'lang' => 'fr'
-        ];
-    }
 
     return [
         'selected' => $selected,
