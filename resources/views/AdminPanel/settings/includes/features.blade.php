@@ -15,14 +15,10 @@
         <label class="form-label" for="featureDes_en">الوصف بالإنجليزية</label>
         {{Form::textarea('featureDes_en',getSettingValue('featureDes_en'),['rows'=>'3','id'=>'featureDes_en','class'=>'form-control'])}}
     </div>
-    <div class="col-12 col-md-12">
-      <label class="form-label" for="featureImage">الصورة</label>
-      {{Form::file('featureImage',['id'=>'featureImage','class'=>'form-control'])}}
-    </div>
     <div class="divider">
         <div class="divider-text"><b>التفاصـيل</b></div>
     </div>
-    @for($i=1;$i<=4;$i++)
+    @for($i=1;$i<=6;$i++)
         <div class="row pt-2 pb-4">
             <h3>الأيقونة #{{$i}}</h3>
             <div class="col-md-4 text-center">
