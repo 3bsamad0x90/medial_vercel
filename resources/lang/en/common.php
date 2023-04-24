@@ -338,5 +338,6 @@ return [
   'AddedToCartSuccessfully' => 'Added to cart successfully',
     'siteDescription_ar' => 'Site Description in Arabic',
     'siteDescription_en' => 'Site Description in English',
-
+    'address_ar' => 'Address in Arabic',
+    'address_en' => 'Address in English',
 ];

@@ -414,4 +414,6 @@ return [
     'AddedToCartSuccessfully' => 'تمت إضافة المنتج إلى السلة بنجاح',
     'siteDescription_ar' => 'وصف الموقع بالعربية',
     'siteDescription_en' => 'وصف الموقع بالإنجليزية',
+    'address_ar' => 'العنوان بالعربية',
+    'address_en' => 'العنوان بالإنجليزية',
 ];
