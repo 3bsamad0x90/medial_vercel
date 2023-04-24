@@ -38,6 +38,14 @@
                     </span>
                 </a>
             </li>
+            <li class="nav-item @if(isset($active) && $active == 'blogs') active @endif">
+                <a class="d-flex align-items-center" href="{{route('admin.blogs')}}">
+                    <i data-feather='book'></i>
+                    <span class="menu-title text-truncate" data-i18n="{{trans('common.blog')}}">
+                        {{ trans('common.blog') }}
+                    </span>
+                </a>
+            </li>
             <li class="nav-item @if(isset($active) && $active == 'pages') active @endif">
                 <a class="d-flex align-items-center" href="{{route('admin.pages')}}">
                     <i data-feather='columns'></i>

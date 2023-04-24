@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminPanelController;
 use App\Http\Controllers\admin\AdminUsersController;
+use App\Http\Controllers\admin\BlogsController;
 use App\Http\Controllers\admin\ClientUsersController;
 use App\Http\Controllers\admin\ContactMessagesController;
 use App\Http\Controllers\admin\OrdersController;
@@ -84,6 +85,13 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
         Route::post('/{product}/edit', [ProductsController::class, 'update'])->name('products.update');
         Route::post('/{product}/updateImages', [ProductsController::class, 'updateImages'])->name('products.updateImages');
         Route::get('/{product}/delete', [ProductsController::class, 'delete'])->name('products.delete');
+    });
+    Route::group(['prefix'=>'blogs'], function(){
+        Route::get('/',[BlogsController::class, 'index'])->name('admin.blogs');
+        Route::post('/create', [BlogsController::class, 'store'])->name('blogs.store');
+        Route::post('/{blog}/edit', [BlogsController::class, 'update'])->name('blogs.update');
+        Route::post('/{blog}/updateImages', [BlogsController::class, 'updateImages'])->name('blogs.updateImages');
+        Route::get('/{blog}/delete', [BlogsController::class, 'delete'])->name('blogs.delete');
     });
 
 });
