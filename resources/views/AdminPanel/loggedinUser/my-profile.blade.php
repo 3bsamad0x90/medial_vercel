@@ -41,7 +41,7 @@
                                 <span class="avatar mb-2">
                                     <img class="round" src="{{auth()->user()->photoLink()}}" alt="avatar" height="150" width="150">
                                 </span>
-                                <div class="file-loading"> 
+                                <div class="file-loading">
                                     <input class="files" name="photo" type="file">
                                 </div>
                             </div>
@@ -54,8 +54,8 @@
                                 {{Form::text('name',auth()->user()->name,['id'=>'name','class'=>'form-control','required'])}}
                             </div>
                             <div class="col-12 col-sm-6 mb-1">
-                                <label class="form-label" for="userName">{{trans('common.username')}}</label>
-                                {{Form::text('userName',auth()->user()->userName,['id'=>'userName','class'=>'form-control'])}}
+                                <label class="form-label" for="username">{{trans('common.username')}}</label>
+                                {{Form::text('username',auth()->user()->username,['id'=>'username','class'=>'form-control'])}}
                             </div>
                             <div class="col-12 col-sm-3 mb-1">
                                 <label class="form-label" for="email">{{trans('common.email')}}</label>
@@ -67,7 +67,6 @@
                                 {{Form::select('language',[
                                                             'ar' => trans('common.lang1Name'),
                                                             'en' => trans('common.lang2Name'),
-                                                            'fr' => trans('common.lang3Name')
                                                             ],auth()->user()->language,['id'=>'language','class'=>'form-control selectpicker'])}}
                             </div>
                             <div class="col-12 col-sm-3 mb-1">

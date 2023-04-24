@@ -1,4 +1,6 @@
 <?php
+
+use Symfony\Component\Intl\Countries;
 function DayMonthOnly($your_date)
 {
     $months = array("Jan" => "يناير",
@@ -86,9 +88,9 @@ function getCssFolder()
 function getCountriesList($lang,$value)
 {
     $list = [];
-    $countries = App\Models\Countries::orderBy('name_'.$lang,'asc')->get();
+    $countries = Countries::getNames($lang);
     foreach ($countries as $country) {
-        $list[$country[$value]] = $country['name_'.$lang] != '' ? $country['name_'.$lang] : $country['name_en'];
+        $list[$country] = $country;
     }
     return $list;
 }
