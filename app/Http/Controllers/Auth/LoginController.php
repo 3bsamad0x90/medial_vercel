@@ -47,11 +47,6 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            if (auth()->user()->checkActive() != '1') {
-                session()->put('faild', auth()->user()->checkActive());
-                auth()->logout();
-                return redirect()->back()->withInput();
-            }
             if (auth()->user()->role == '1') {
                 return redirect()->route('admin.index');
             } else {

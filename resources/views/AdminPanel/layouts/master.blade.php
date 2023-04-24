@@ -76,7 +76,7 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                {{-- @include('AdminPanel.layouts.topbar.lang') --}}
+                @include('AdminPanel.layouts.topbar.lang')
                 <li class="nav-item d-none d-lg-block">
                     <a class="nav-link nav-link-style">
                         <i class="ficon" data-feather="moon"></i>

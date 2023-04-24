@@ -1,6 +1,6 @@
 <?php
-    $countUnreadMessage = App\Models\ContactMessages::where('user_type',null)->where('status','0')->count();
-    $UnreadMessage = App\Models\ContactMessages::where('user_type',null)->where('status','0')->take(15)->get();
+    $countUnreadMessage = App\Models\ContactMessages::where('status','0')->count();
+    $UnreadMessage = App\Models\ContactMessages::where('status','0')->take(15)->get();
     if ($countUnreadMessage > 99) {
         $countUnreadMessage = '+99';
     }

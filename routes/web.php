@@ -18,27 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/testStripe', function () {
-    return view('stripe');
-});
-Route::post('/testStripe', function () {
-    Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-    Stripe\Charge::create ([
-            "amount" => 100 * 150,
-            "currency" => "inr",
-            "source" => request()->stripeToken,
-            "description" => "Making test payment."
-    ]);
 
-    Session::flash('success', 'Payment has been successfully processed.');
-
-    return back();
-})->name('stripe.payment');
 Route::get('SwitchLang/{lang}',function($lang){
     session()->put('Lang',$lang);
     app()->setLocale($lang);
     if (auth()->check()) {
-        $user = App\User::find(auth()->user()->id)->update(['language'=>$lang]);
+        $user = App\Models\User::find(auth()->user()->id)->update(['language'=>$lang]);
     }
 	return Redirect::back();
 });
@@ -59,16 +44,11 @@ Route::get('user/{email}/{lang}',function($email,$lang){
     }
 
 })->name('user.ativate.account');
+
 require __DIR__ . '/admin.php';
 
-
-
 Auth::routes();
-Route::get('admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
