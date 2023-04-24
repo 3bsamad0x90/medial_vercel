@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -36,5 +37,40 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    public function login(Request $request)
+    {
+        $input = $request->all();
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
+            if (auth()->user()->checkActive() != '1') {
+                session()->put('faild', auth()->user()->checkActive());
+                auth()->logout();
+                return redirect()->back()->withInput();
+            }
+            if (auth()->user()->role == '1') {
+                return redirect()->route('admin.index');
+            } else {
+                return redirect()->back()->withInput();
+            }
+        } else {
+            session()->put('faild', trans('auth.failed'));
+            return redirect()->back()->withInput();
+        }
+    }
+    public function showLoginForm()
+    {
+        $title = trans('common.Sign in');
+        return view('AdminPanel.auth.login', [
+            'active' => '',
+        ], compact('title'));
+    }
+    protected function loggedOut(Request $request)
+    {
+        return redirect()->route('login');
     }
 }
