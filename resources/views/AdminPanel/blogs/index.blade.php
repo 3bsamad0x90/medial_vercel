@@ -122,31 +122,27 @@
                       </div>
                       <div class="modal-body pb-5 px-sm-5 pt-50">
                         <div class="text-center mb-2">
-                          <h1 class="mb-1">{{trans('common.edit')}}</h1>
+                          <h1 class="mb-1">{{trans('common.AdditionalImages')}}</h1>
                         </div>
                         {{Form::open(['url'=>route('blogs.updateImages',['blog'=>$blog->id]), 'id'=>'editnewForm', 'class'=>'row gy-1
                         pt-75', 'files'=>true])}}
                         @php
-                        $images = json_decode($blog->images);
+                            $images = json_decode($blog->images);
                         @endphp
-
                         @if($images != null)
-                        @foreach ($images as $image)
-                        <div class="user-image col-md-4 col-lg-3 mb-2 position-relative" id="{{$blog->id.'_remove_'.$image}}">
-                          <img src="{{ asset('uploads/blogs/'.$blog->id. '/' . $image) }}" alt="" height="90" width="100%" />
-                          <button type="button" class="btn-close bg-white text-center"
-                            onclick="removeItem(this,'{{$blog->id.'_remove_'.$image}}')"
-                            style="position: absolute; top: -4px; left: 10px"></button>
-                          <input type='hidden' value='{{$image}}' name="image_hidden[]" id="image_arr">
-                        </div>
-
-                        @endforeach
+                            @foreach ($images as $image)
+                            <div class="user-image col-md-4 col-lg-3 mb-2 position-relative" id="{{$blog->id.'_remove_'.$image}}">
+                            <img src="{{ asset('uploads/blogs/'.$blog->id. '/' . $image) }}" alt="" height="90" width="100%" />
+                            <button type="button" class="btn-close bg-white text-center"
+                                onclick="removeItem(this,'{{$blog->id.'_remove_'.$image}}')"
+                                style="position: absolute; top: -4px; left: 10px"></button>
+                            <input type='hidden' value='{{$image}}' name="image_hidden[]" id="image_arr">
+                            </div>
+                            @endforeach
                         @endif
-
                         <div class="col-12 col-md-12">
                           <label class="form-label" for="images">الصور</label>
                           {{Form::file('images[]',['id'=>'images', 'class'=>'form-control', 'multiple'=>true])}}
-
                         </div>
 
                         <div class="col-12 text-center mt-2 pt-50">
@@ -162,15 +158,10 @@
                 </div>
                 @endforeach
                 {{ $blogs->links('vendor.pagination.default') }}
-
-
             </div>
         </div>
     </div>
     <!-- Bordered table end -->
-
-
-
 @stop
 
 @section('page_buttons')

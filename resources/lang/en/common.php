@@ -340,4 +340,5 @@ return [
     'siteDescription_en' => 'Site Description in English',
     'address_ar' => 'Address in Arabic',
     'address_en' => 'Address in English',
+    'AdditionalImages' => 'Additional Images',
 ];

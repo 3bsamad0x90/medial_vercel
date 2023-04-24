@@ -28,8 +28,8 @@ class BlogsController extends Controller
     }
     public function store(StoreblogRequest $request)
     {
-        // dd($request->all());
-        $blog = Blog::create($request->validated());
+        $data = $request->except('_token', 'image', 'images');
+        $blog = Blog::create($data);
         if ($request->hasFile('image')) {
             $blog['image'] = upload_image_without_resize('blogs/' . $blog->id, $request->image);
             $blog->update();

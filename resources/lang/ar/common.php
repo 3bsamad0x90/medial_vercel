@@ -418,4 +418,5 @@ return [
     'address_en' => 'العنوان بالإنجليزية',
     'blogs' => 'المدونات',
     'blog' => 'المدونة',
+    'AdditionalImages' => 'صور إضافية',
 ];

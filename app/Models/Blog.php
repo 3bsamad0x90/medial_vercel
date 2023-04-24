@@ -20,11 +20,9 @@ class Blog extends Model
     public function photoLink()
     {
         $image = asset('AdminAssets/app-assets/images/portrait/small/avatar.png');
-
         if ($this->image != '') {
             $image = asset('uploads/blogs/' . $this->id . '/' . $this->image);
         }
-
         return $image;
     }
 }
