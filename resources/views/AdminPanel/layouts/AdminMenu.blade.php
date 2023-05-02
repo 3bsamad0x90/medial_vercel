@@ -82,15 +82,6 @@
                 </ul>
             </li>
 
-            <li class="nav-item @if(isset($active) && $active == 'orders') active @endif">
-                <a class="d-flex align-items-center" href="{{route('admin.orders')}}">
-                    <i data-feather='shopping-cart'></i>
-                    <span class="menu-title text-truncate" data-i18n="{{trans('common.orders')}}">
-                        {{trans('common.orders')}}
-                    </span>
-                </a>
-            </li>
-
             <li class="nav-item @if(isset($active) && $active == 'contactMessages') active @endif">
                 <a class="d-flex align-items-center" href="{{route('admin.contactmessages')}}">
                     <i data-feather='mail'></i>
