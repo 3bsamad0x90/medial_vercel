@@ -76,7 +76,7 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                @include('AdminPanel.layouts.topbar.lang')
+                {{-- @include('AdminPanel.layouts.topbar.lang') --}}
                 <li class="nav-item d-none d-lg-block">
                     <a class="nav-link nav-link-style">
                         <i class="ficon" data-feather="moon"></i>
@@ -122,14 +122,14 @@
         <p class="clearfix mb-0">
             <span class="float-md-start d-block d-md-inline-block mt-25">
                 {{trans('common.madeBy')}}
-                <a class="ms-25" href="https://technomasr.com" target="_blank">
-                    {{trans('common.TechnoMasrCo.')}}
+                <a class="ms-25" href="https://twitter.com/3bsamad0x90" target="_blank">
+                    3Bsamad0x90
                 </a>
-                <!-- <span class="d-none d-sm-inline-block">, All rights Reserved</span> -->
+              <span class="d-none d-sm-inline-block">, {{ trans('common.AllRightsReserved') }}</span>
             </span>
-            <!-- <span class="float-md-end d-none d-md-block">
-                Hand-crafted & Made with<i data-feather="heart"></i>
-            </span> -->
+            <span class="float-md-end d-none d-md-block">
+               {{ trans('common.AllLove') }}<i data-feather="heart"></i>
+            </span>
         </p>
     </footer>
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>

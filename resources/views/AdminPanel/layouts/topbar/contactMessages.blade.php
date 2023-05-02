@@ -30,15 +30,17 @@
                                 <span class="fw-bolder">{{trans('common.YouGotMessageFrom')}}</span>
                                 {{$UnreadMessag->name}}
                             </p>
-                            <small class="notification-text">{{$UnreadMessag->supject}}</small><br>
-                            <small class="notification-text">{{$UnreadMessag->fromTime()}}</small>
+                            <small class="notification-text">{{$UnreadMessag->message}}</small><br>
+                            <small class="notification-text">{{$UnreadMessag->created_at->diffForHumans()}}</small>
                         </div>
                     </div>
                 </a>
             @empty
-
+            <div class=" text-center">
+                <h4>{{trans('common.nothingToView')}}</h4>
+            </div>
             @endforelse
         </li>
-        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Read all notifications</a></li>
+        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">{{ trans('common.ReadAllNotifications') }}</a></li>
     </ul>
 </li>

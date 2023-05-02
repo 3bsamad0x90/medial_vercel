@@ -341,4 +341,7 @@ return [
     'address_ar' => 'Address in Arabic',
     'address_en' => 'Address in English',
     'AdditionalImages' => 'Additional Images',
+    'ReadAllNotifications' => 'Read All Notifications',
+    'AllLove' => 'All Love',
+    'AllRightsReserved' => 'All Rights Reserved',
 ];

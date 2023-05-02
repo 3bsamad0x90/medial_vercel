@@ -419,4 +419,7 @@ return [
     'blogs' => 'المدونات',
     'blog' => 'المدونة',
     'AdditionalImages' => 'صور إضافية',
+    'ReadAllNotifications' => 'قراءة جميع الإشعارات',
+    'AllLove' => 'كـل الحـب',
+    'AllRightsReserved' => 'كل الحقوق محفوظة',
 ];

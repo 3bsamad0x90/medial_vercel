@@ -15,9 +15,8 @@ class ContactMessagesController extends Controller
         $lang = $request->header('lang');
         if ($lang == '') {
             $resArr = [
-                'status' => 'faild',
+                'status' => false,
                 'message' => trans('api.pleaseSendLangCode'),
-                'data' => []
             ];
             return response()->json($resArr);
         }
@@ -26,14 +25,14 @@ class ContactMessagesController extends Controller
                     'name' => 'required|string',
                     'email' => 'required|email',
                     'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-                    'content' => 'required|string'
+                    'message' => 'required|string'
                 ];
         $validator=Validator::make($request->all(),$rules);
         if($validator->fails())
         {
             foreach ((array)$validator->errors() as $error) {
                 return response()->json([
-                    'status' => 'failed',
+                    'status' => false,
                     'message' => trans('api.pleaseRecheckYourDetails'),
                     'data' => $error
                 ]);
@@ -45,15 +44,13 @@ class ContactMessagesController extends Controller
         $message = ContactMessages::create($data);
         if ($message) {
             $resArr = [
-                'status' => 'success',
+                'status' => true,
                 'message' => trans('api.yourDataHasBeenSentSuccessfully'),
-                'data' => []
             ];
         } else {
             $resArr = [
-                'status' => 'failed',
+                'status' => false,
                 'message' => trans('api.someThingWentWrong'),
-                'data' => []
             ];
         }
         return response()->json($resArr);
