@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Q Tap</title>
+        <title>Medical Clinic</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -79,7 +79,7 @@
                             @csrf
                         </form>
                     @else
-                        <a href="{{ route('admin.login') }}">Login</a>
+                        <a href="{{ route('login') }}">Login</a>
 
                         {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -89,7 +89,7 @@
             @endif
             <div class="content">
                 <div class="title m-b-md">
-                    Q Tap
+                    Medical Clinic
                 </div>
                 <div class="links">
                     <a href="#">{{trans('Home')}}</a>
