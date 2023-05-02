@@ -44,6 +44,11 @@
                                 <i data-feather="users"></i> من نحن
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="details-tab" data-bs-toggle="tab" href="#details" aria-controls="details" role="tab" aria-selected="false">
+                                <i data-feather="file-text"></i> سكشن التفاصيل
+                            </a>
+                        </li>
 
                     </ul>
                     <div class="tab-content">
@@ -67,6 +72,9 @@
                         </div>
                         <div class="tab-pane" id="aboutus" aria-labelledby="aboutus-tab" role="tabpanel">
                             @include('AdminPanel.settings.includes.aboutus')
+                        </div>
+                        <div class="tab-pane" id="details" aria-labelledby="details-tab" role="tabpanel">
+                            @include('AdminPanel.settings.includes.details')
                         </div>
                     </div>
                 </div>
