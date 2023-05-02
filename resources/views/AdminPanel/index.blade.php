@@ -34,8 +34,8 @@
                     <div class="col-md-6">
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
-                                <a href="{{route('admin.pages')}}" class="text-white">
-                                    الصفحات
+                                <a href="{{route('admin.blogs')}}" class="text-white">
+                                    المدونة
                                 </a>
                             </div>
                         </div>
@@ -43,8 +43,8 @@
                     <div class="col-md-6">
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
-                                <a href="{{route('admin.orders')}}" class="text-white">
-                                    الطلبات
+                                <a href="{{route('admin.contactmessages')}}" class="text-white">
+                                    رسائل التواصل
                                 </a>
                             </div>
                         </div>

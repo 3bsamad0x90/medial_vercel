@@ -36,15 +36,6 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
         Route::get('/{id}/delete', [AdminUsersController::class, 'delete'])->name('admin.adminUsers.delete');
     });
 
-    Route::group(['prefix'=>'clients'], function(){
-        Route::get('/',[ClientUsersController::class, 'index'])->name('admin.clientUsers');
-        Route::get('/create',[ClientUsersController::class, 'create'])->name('admin.clientUsers.create');
-        Route::post('/create',[ClientUsersController::class, 'store'])->name('admin.clientUsers.store');
-        Route::get('/{id}/edit',[ClientUsersController::class, 'edit'])->name('admin.clientUsers.edit');
-        Route::post('/{id}/edit',[ClientUsersController::class, 'update'])->name('admin.clientUsers.update');
-        Route::get('/{id}/delete',[ClientUsersController::class, 'delete'])->name('admin.clientUsers.delete');
-    });
-
     Route::group(['prefix'=>'roles'], function(){
         Route::get('/',[RolesController::class, 'index'])->name('admin.roles');
         Route::post('/create', [RolesController::class, 'store'])->name('admin.roles.store');
@@ -71,12 +62,6 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
         Route::get('/{key}/deletePhoto', [SettingsController::class, 'deleteSettingPhoto'])->name('admin.settings.deletePhoto');
     });
 
-
-    Route::group(['prefix'=>'orders'], function(){
-        Route::get('/', [OrdersController::class, 'index'])->name('admin.orders');
-        Route::post('/{order}', [OrdersController::class, 'editStatus'])->name('admin.orders.editStatus');
-        Route::get('/{id}/details', [OrdersController::class, 'details'])->name('admin.orders.details');
-    });
 
 
     Route::group(['prefix'=>'products'], function(){

@@ -54,34 +54,6 @@
                     </span>
                 </a>
             </li>
-            <li class=" nav-item">
-                <a class="d-flex align-items-center" href="#">
-                    <i data-feather="shield"></i>
-                    <span class="menu-title text-truncate" data-i18n="{{trans('common.UsersManagment')}}">
-                        {{trans('common.UsersManagment')}}
-                    </span>
-                </a>
-                <ul class="menu-content">
-                    <li @if(isset($active) && $active == 'adminUsers') class="active" @endif>
-                        <a class="d-flex align-items-center" href="{{route('admin.adminUsers')}}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="{{trans('common.AdminUsers')}}">
-                               المديرين
-                            </span>
-                        </a>
-                    </li>
-
-                    <li @if(isset($active) && $active == 'clientUsers') class="active" @endif>
-                        <a class="d-flex align-items-center" href="{{route('admin.clientUsers')}}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="{{trans('common.Clients')}}">
-                                المستخدمين
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="nav-item @if(isset($active) && $active == 'contactMessages') active @endif">
                 <a class="d-flex align-items-center" href="{{route('admin.contactmessages')}}">
                     <i data-feather='mail'></i>
