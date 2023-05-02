@@ -12,15 +12,19 @@
             {{Form::text('details_'.$i.'title_ar',getSettingValue('details_'.$i.'title_ar'),['id'=>'details'.$i.'title_ar','class'=>'form-control'])}}
         </div>
         <div class="col-12 col-md-6">
-            <label class="form-label" for="details{{$i}}title_en">#{{ $i }} العنوان بالإنجليزية</label>
+            <label class="form-label" for="details{{$i}}title_en">#{{ $i }} النص بالإنجليزية</label>
             {{Form::text('details_'.$i.'title_en',getSettingValue('details_'.$i.'title_en'),['id'=>'details'.$i.'title_en','class'=>'form-control'])}}
         </div>
         <div class="divider">
             <div class="divider-text"><b>----</b></div>
         </div>
    @endfor
-    <div class="col-12 col-md-12">
-      <label class="form-label" for="detailsImage">الصورة</label>
-      {{Form::file('detailsImage',['id'=>'detailsImage','class'=>'form-control'])}}
+    
+    <div class="col-md-3 text-center">
+        <label class="form-label" for="detailsImage">الصورة</label>
+        {!! getSettingImageValue('detailsImage') !!}
+        <div class="file-loading">
+            <input class="files" name="detailsImage" type="file">
+        </div>
     </div>
 </div>

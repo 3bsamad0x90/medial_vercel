@@ -35,6 +35,16 @@ class StaticPagesController extends Controller
           ];
           $dely = $dely + 200;
         }
+        $detailsDely = 400;
+        $details = [];
+        for($i = 1; $i <=4 ; $i++ ){
+          $details[] = [
+            'title' => getSettingValue('details_'.$i. 'title_'.$lang),
+            'number' => getSettingValue('details_'.$i.'number'),
+            'delay' => $detailsDely,
+          ];
+          $detailsDely = $detailsDely + 200;
+        }
         $list = [
             'general' => [
                 'title' => getSettingValue('siteTitle_'.$lang),
@@ -52,6 +62,10 @@ class StaticPagesController extends Controller
                 'description' => getSettingValue('featureDes_'.$lang),
                 'image' => getSettingImageLink('featureImage'),
                 'boxes' => $boxes,
+            ],
+            'details' => [
+                'image' => getSettingImageLink('detailsImage'),
+                'details' => $details,
             ],
         ];
         $resArr = [
