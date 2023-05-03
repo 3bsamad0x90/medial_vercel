@@ -18,7 +18,10 @@ function upload_image_without_resize($path , $image )
 {
     checkForDirectory('uploads/'.$path);
     // $image must be a $request->image
-    Intervention\Image\Facades\Image::make($image)->save(public_path('uploads/'.$path .'/'. $image->hashName()));
+    // $image must be reduced to 300 * 300 px and decreasing the size of the image to 60% of the original size without changing the image dimensions (width and height)
+    Intervention\Image\Facades\Image::make($image)->resize(400, null, function ($constraint) {
+        $constraint->aspectRatio();
+    })->save(public_path('uploads/'.$path .'/'. $image->hashName()));
     return $image->hashName();
 }
 
