@@ -16,29 +16,10 @@ class ProductsController extends Controller
             $resArr = [
                 'status' => false,
                 'message' => trans('api.pleaseSendLangCode'),
-                'data' => []
             ];
             return response()->json($resArr);
         }
-        $products = Products::orderBy('id', 'asc');
-        // if (isset($_GET['price'])) {
-        //   $price = [];
-        //   foreach ($_GET['price'] as $key => $value) {
-        //     $price[] = $value;
-        //   }
-        //   $products = $products->whereIn('price', $price);
-        // }
-        if (isset($_GET['price'])) {
-          if ($_GET['price'] != '') {
-            $products = $products->where('price', $_GET['price']);
-          }
-        }
-        if(isset($_GET['type'])){
-          if($_GET['type'] != ''){
-              $products = $products->where('type', $_GET['type']);
-          }
-        }
-        $products = $products->get();
+        $products = Products::orderBy('id', 'asc')->get();
         if($products){
             $resArr = [
                 'status' => true,
@@ -48,7 +29,6 @@ class ProductsController extends Controller
         }else{
             $resArr = [
                 'status' => false,
-                'data' => []
             ];
             return response()->json($resArr);
         }
