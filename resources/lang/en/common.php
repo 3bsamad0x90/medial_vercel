@@ -344,4 +344,12 @@ return [
     'ReadAllNotifications' => 'Read All Notifications',
     'AllLove' => 'All Love',
     'AllRightsReserved' => 'All Rights Reserved',
+    'aboutUs' => 'About Us',
+    'gallery' => 'Gallery',
+    'detailsSection' => 'Details Section',
+    'galleryDescription_ar' => 'Gallery Description in Arabic',
+    'galleryDescription_en' => 'Gallery Description in English',
+    'galleryTitle_en' => 'Gallery Title in English',
+    'galleryTitle_ar' => 'Gallery Title in Arabic',
 ];
+

@@ -41,12 +41,17 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="aboutus-tab" data-bs-toggle="tab" href="#aboutus" aria-controls="aboutus" role="tab" aria-selected="false">
-                                <i data-feather="users"></i> من نحن
+                                <i data-feather="users"></i> {{ trans('common.aboutUs') }}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="details-tab" data-bs-toggle="tab" href="#details" aria-controls="details" role="tab" aria-selected="false">
-                                <i data-feather="file-text"></i> سكشن التفاصيل
+                                <i data-feather="file-text"></i> {{ trans('common.detailsSection') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="gallery-tab" data-bs-toggle="tab" href="#gallery" aria-controls="gallery" role="tab" aria-selected="false">
+                                <i data-feather="image"></i> {{ trans('common.gallery') }}
                             </a>
                         </li>
 
@@ -75,6 +80,9 @@
                         </div>
                         <div class="tab-pane" id="details" aria-labelledby="details-tab" role="tabpanel">
                             @include('AdminPanel.settings.includes.details')
+                        </div>
+                        <div class="tab-pane" id="gallery" aria-labelledby="gallery-tab" role="tabpanel">
+                            @include('AdminPanel.settings.includes.gallery')
                         </div>
                     </div>
                 </div>

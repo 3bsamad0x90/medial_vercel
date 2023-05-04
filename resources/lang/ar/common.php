@@ -422,4 +422,11 @@ return [
     'ReadAllNotifications' => 'قراءة جميع الإشعارات',
     'AllLove' => 'كـل الحـب',
     'AllRightsReserved' => 'كل الحقوق محفوظة',
+    'aboutUs' => 'من نحن',
+    'gallery' => 'المعرض',
+    'detailsSection' => 'سكشن التفاصيل',
+    'galleryTitle_en' => 'عنوان المعرض بالإنجليزية',
+    'galleryTitle_ar' => 'عنوان المعرض بالعربية',
+    'galleryDescription_ar' => 'وصف المعرض بالعربية',
+    'galleryDescription_en' => 'وصف المعرض بالإنجليزية',
 ];
