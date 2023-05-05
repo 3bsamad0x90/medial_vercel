@@ -46,14 +46,6 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item @if(isset($active) && $active == 'pages') active @endif">
-                <a class="d-flex align-items-center" href="{{route('admin.pages')}}">
-                    <i data-feather='columns'></i>
-                    <span class="menu-title text-truncate" data-i18n="{{trans('common.pages')}}">
-                        {{trans('common.pages')}}
-                    </span>
-                </a>
-            </li>
             <li class="nav-item @if(isset($active) && $active == 'contactMessages') active @endif">
                 <a class="d-flex align-items-center" href="{{route('admin.contactmessages')}}">
                     <i data-feather='mail'></i>

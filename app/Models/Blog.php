@@ -25,4 +25,18 @@ class Blog extends Model
         }
         return $image;
     }
+    public function apiData($lang){
+        $images = [];
+        foreach(json_decode($this->images) as $image){
+            $images [] = asset('uploads/blogs/' . $this->id . '/' . $image);
+        }
+        $data =  [
+            'id' => $this->id,
+            'title' => $this['title_'.$lang],
+            'description' => $this['description_' . $lang],
+            'image' => $this->photoLink(),
+            'images' => $images
+        ];
+        return $data;
+    }
 }

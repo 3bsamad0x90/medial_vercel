@@ -1,15 +1,10 @@
 <?php
 
-use App\Http\Controllers\api\AuthinticationController;
-use App\Http\Controllers\api\CardController;
+use App\Http\Controllers\api\BlogsController;
 use App\Http\Controllers\api\ContactMessagesController;
-use App\Http\Controllers\api\OrdersController;
-use App\Http\Controllers\api\PagesController;
 use App\Http\Controllers\api\ProductsController;
-use App\Http\Controllers\api\ReviewController;
 use App\Http\Controllers\api\StaticPagesController;
 use App\Http\Controllers\api\TestimonialsController;
-use App\Http\Controllers\api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +34,9 @@ Route::group(['middleware'=> ['api']], function () {
     //Testimonials
     Route::get('/testimonials',[TestimonialsController::class, 'testimonials']);
     Route::get('/testimonials/{testimonial}/details',[TestimonialsController::class, 'testimonialsDetails']);
+    //Blog
+    Route::get('/media',[BlogsController::class, 'index']);
+    Route::get('/media/{media}',[BlogsController::class, 'show']);
 
     //Contact Us
     Route::post('/sendContactMessage',[ContactMessagesController::class, 'sendContactMessage']);
