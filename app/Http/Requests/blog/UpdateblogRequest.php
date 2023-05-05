@@ -26,7 +26,7 @@ class UpdateblogRequest extends FormRequest
             'title_en' => 'required',
             'description_ar' => 'required|string',
             'description_en' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ];
     }
     public function messages()
@@ -37,7 +37,8 @@ class UpdateblogRequest extends FormRequest
             'description_ar.required' => 'الوصف بالعربية مطلوب',
             'description_en.required' => 'الوصف بالانجليزية مطلوب',
             'image.image' => 'الصورة يجب ان تكون صورة',
-            'image.mimes' => 'الصورة يجب ان تكون من نوع jpeg,png,jpg,gif',
+            'image.mimes' => 'الصورة يجب ان تكون من نوع jpeg,png,jpg,gif,webp',
+            'image.max' => 'الصورة يجب ان لا تتعدى 2048 كيلوبايت',
         ];
     }
 }

@@ -144,6 +144,9 @@
                           <label class="form-label" for="images">الصور</label>
                           {{Form::file('images[]',['id'=>'images', 'class'=>'form-control', 'multiple'=>true])}}
                         </div>
+                        @error('images')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-12 text-center mt-2 pt-50">
                           <button type="submit" class="btn btn-primary me-1">حفظ التغييرات</button>
@@ -183,27 +186,44 @@
                             <label class="form-label" for="title_ar">{{ trans('common.title_ar') }}</label>
                             {{Form::text('title_ar','',['id'=>'title_ar', 'class'=>'form-control'])}}
                         </div>
+                        @error('title_ar')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-12 col-md-6">
                             <label class="form-label" for="title_en">{{ trans('common.title_en') }}</label>
                             {{Form::text('title_en','',['id'=>'title_en', 'class'=>'form-control'])}}
                         </div>
-
+                        @error('title_en')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-12 col-md-12">
                             <label class="form-label" for="description_ar">{{ trans('common.description_ar') }}</label>
                             {{Form::textarea('description_ar','',['id'=>'description_ar', 'class'=>'form-control', 'rows'=>3])}}
                         </div>
+                        @error('description_ar')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-12 col-md-12">
                             <label class="form-label" for="description_en">{{ trans('common.description_en') }}</label>
                             {{Form::textarea('description_en','',['id'=>'description_en', 'class'=>'form-control', 'rows'=>3])}}
                         </div>
+                        @error('description_en')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-12 col-md-12">
                             <label class="form-label" for="image">{{ trans('common.image') }}</label>
                             {{Form::file('image',['id'=>'image', 'class'=>'form-control'])}}
                         </div>
+                        @error('image')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-12 col-md-12">
                           <label class="form-label" for="images">{{ trans('common.AdditionalImages') }}</label>
                           {{Form::file('images[]',['id'=>'images', 'class'=>'form-control', 'multiple'=>true])}}
                         </div>
+                        @error('images')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-12 text-center mt-2 pt-50">
                             <button type="submit" class="btn btn-primary me-1">حفظ التغييرات</button>
                             <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">

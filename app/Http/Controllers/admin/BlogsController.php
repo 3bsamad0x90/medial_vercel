@@ -31,13 +31,13 @@ class BlogsController extends Controller
         $data = $request->except('_token', 'image', 'images');
         $blog = Blog::create($data);
         if ($request->hasFile('image')) {
-            $blog['image'] = upload_image_without_resize('blogs/' . $blog->id, $request->image);
+            $blog['image'] = upload_image('blogs/' . $blog->id, $request->image);
             $blog->update();
         }
         $images = [];
         if ($files = $request->file('images')) {
             foreach ($files as $image) {
-                $imageData = upload_image_without_resize('blogs/' . $blog->id, $image);
+                $imageData = upload_image('blogs/' . $blog->id, $image);
                 $images[] = $imageData;
             }
             $blog['images'] = json_encode($images);
@@ -45,10 +45,10 @@ class BlogsController extends Controller
         }
         if ($blog) {
             return redirect()->route('admin.blogs')
-            ->with('success', 'تم حفظ البيانات بنجاح');
+            ->with('success', trans('common.successMessageText'));
         } else {
             return redirect()->back()
-                ->with('failed', 'لم نستطع حفظ البيانات');
+                ->with('failed', trans('common.faildMessageText'));
         }
     }
     public function update(UpdateblogRequest $request, Blog $blog)
@@ -56,26 +56,26 @@ class BlogsController extends Controller
         $blog->update($request->except('_token', 'image'));
         if ($request->hasFile('image')) {
             unlink('uploads/blogs/' . $blog->id . '/' . $blog->image);
-            $blog['image'] = upload_image_without_resize('blogs/' . $blog->id, $request->image);
+            $blog['image'] = upload_image('blogs/' . $blog->id, $request->image);
             $blog->update();
         }
         if ($blog) {
             return redirect()->route('admin.blogs')
-            ->with('success', 'تم تعديل البيانات بنجاح');
+            ->with('success', trans('common.successMessageText'));
         } else {
             return redirect()->back()
-                ->with('failed', 'لم نستطع تعديل البيانات');
+                ->with('failed', trans('common.faildMessageText'));
         }
     }
     public function updateImages(Request $request, Blog $blog)
     {
         $request->validate(
             [
-                'images.*' => 'mimes:png,jpg,jpeg',
+                'images.*' => 'mimes:png,jpg,jpeg, webp',
             ],
             [
-                'images.mimes' => 'يجب ان تكون الصورة من نوع png, jpg, jpeg',
-                'images.*.mimes' => 'يجب ان تكون الصورة من نوع png, jpg, jpeg',
+                'images.mimes' => 'يجب ان تكون الصورة من نوع png, jpg, jpeg, webp',
+                'images.*.mimes' => 'يجب ان تكون الصورة من نوع png, jpg, jpeg,  webp',
             ]
         );
         $oldImage = $request['image_hidden'] ?? [];
@@ -83,7 +83,7 @@ class BlogsController extends Controller
         if ($files = $request->File('images')) {
             $allImages += $oldImage;
             foreach ($files as $image) {
-                $imageData = upload_image_without_resize('blogs/' . $blog->id, $image);
+                $imageData = upload_image('blogs/' . $blog->id, $image);
                 $allImages[] = $imageData;
             }
             $data['images'] = json_encode($allImages);
@@ -94,10 +94,10 @@ class BlogsController extends Controller
         $updateImages = $blog->update();
         if ($updateImages) {
             return redirect()->route('admin.blogs')
-            ->with('success', 'تم حفظ البيانات بنجاح');
+            ->with('success', trans('common.successMessageText'));
         } else {
             return redirect()->back()
-                ->with('failed', 'لم نستطع حفظ البيانات');
+                ->with('failed', trans('common.faildMessageText'));
         }
     }
     public function delete(Blog $blog)
