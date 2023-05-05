@@ -12,13 +12,11 @@
     </div>
     <div class="col-12 col-md-12">
         <label class="form-label" for="galleryDescription_ar">{{trans('common.galleryDescription_ar')}}</label>
-        {{Form::textarea('galleryDescription_ar',getSettingValue('galleryDescription_ar'),['rows'=>'3','id'=>'galleryDescription_ar','class'=>'form-control
-        editor_ar'])}}
+        {{Form::textarea('galleryDescription_ar',getSettingValue('galleryDescription_ar'),['rows'=>'3','id'=>'galleryDescription_ar','class'=>'form-control'])}}
     </div>
     <div class="col-12 col-md-12">
         <label class="form-label" for="galleryDescription_en">{{trans('common.galleryDescription_en')}}</label>
-        {{Form::textarea('galleryDescription_en',getSettingValue('galleryDescription_en'),['rows'=>'3','id'=>'galleryDescription_en','class'=>'form-control
-        editor_en'])}}
+        {{Form::textarea('galleryDescription_en',getSettingValue('galleryDescription_en'),['rows'=>'3','id'=>'galleryDescription_en','class'=>'form-control'])}}
     </div>
     <div class="divider">
         <div class="divider-text"><b>{{ trans('common.images') }}</b></div>

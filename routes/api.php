@@ -31,6 +31,7 @@ Route::group(['middleware'=> ['api']], function () {
     Route::get('/mainpage',[StaticPagesController::class,'mainpage']);
     Route::get('/contactus',[StaticPagesController::class, 'contactus']);
     Route::get('/aboutus',[StaticPagesController::class, 'aboutus']);
+    Route::get('/staticData',[StaticPagesController::class, 'staticData']);
     //products
     Route::get('/products',[ProductsController::class, 'products']);
     Route::get('/products/{product}/details',[ProductsController::class, 'productDetails']);

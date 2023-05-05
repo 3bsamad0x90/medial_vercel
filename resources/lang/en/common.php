@@ -277,7 +277,7 @@ return [
 
     'yourDataHasBeenSentSuccessfully,WeWillContactYouToActivateYourAccountAsSoonAsPossible' => 'Your Data Has Been Sent Successfully, We Will Contact You To Activate Your Account As Soon As Possible',
     'logo' => 'Logo',
-
+    'someThingWentWrong' => 'Some Thing Went Wrong',
     'New' => 'New',
     'Read all notifications' => 'Read all notifications',
     'publishersfaqs' => 'Publisher FAQs',
@@ -352,5 +352,6 @@ return [
     'galleryTitle_en' => 'Gallery Title in English',
     'galleryTitle_ar' => 'Gallery Title in Arabic',
     'testimonials' => 'Testimonials',
+
 ];
 

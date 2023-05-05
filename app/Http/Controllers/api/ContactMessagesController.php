@@ -24,7 +24,7 @@ class ContactMessagesController extends Controller
         $rules = [
                     'name' => 'required|string',
                     'email' => 'required|email',
-                    'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+                    // 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
                     'message' => 'required|string'
                 ];
         $validator=Validator::make($request->all(),$rules);
@@ -45,12 +45,12 @@ class ContactMessagesController extends Controller
         if ($message) {
             $resArr = [
                 'status' => true,
-                'message' => trans('api.yourDataHasBeenSentSuccessfully'),
+                'message' => trans('common.yourDataHasBeenSentSuccessfully'),
             ];
         } else {
             $resArr = [
                 'status' => false,
-                'message' => trans('api.someThingWentWrong'),
+                'message' => trans('common.someThingWentWrong'),
             ];
         }
         return response()->json($resArr);

@@ -13,11 +13,11 @@
     </div>
     <div class="col-12 col-md-12">
         <label class="form-label" for="siteDescription_ar">{{trans('common.siteDescription_ar')}}</label>
-        {{Form::textarea('siteDescription_ar',getSettingValue('siteDescription_ar'),['rows'=>'3','id'=>'siteDescription_ar','class'=>'form-control editor_ar'])}}
+        {{Form::textarea('siteDescription_ar',getSettingValue('siteDescription_ar'),['rows'=>'3','id'=>'siteDescription_ar','class'=>'form-control'])}}
     </div>
     <div class="col-12 col-md-12">
         <label class="form-label" for="siteDescription_en">{{trans('common.siteDescription_en')}}</label>
-        {{Form::textarea('siteDescription_en',getSettingValue('siteDescription_en'),['rows'=>'3','id'=>'siteDescription_en','class'=>'form-control editor_en'])}}
+        {{Form::textarea('siteDescription_en',getSettingValue('siteDescription_en'),['rows'=>'3','id'=>'siteDescription_en','class'=>'form-control'])}}
     </div>
 
 </div>

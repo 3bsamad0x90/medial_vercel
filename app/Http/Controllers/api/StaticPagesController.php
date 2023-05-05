@@ -35,15 +35,16 @@ class StaticPagesController extends Controller
           ];
           $dely = $dely + 200;
         }
-        $detailsDely = 400;
         $details = [];
         for($i = 1; $i <=4 ; $i++ ){
           $details[] = [
             'title' => getSettingValue('details_'.$i. 'title_'.$lang),
             'number' => getSettingValue('details_'.$i.'number'),
-            'delay' => $detailsDely,
           ];
-          $detailsDely = $detailsDely + 200;
+        }
+        $gellarImages = [];
+        for($i = 1; $i <=6 ; $i++ ){
+          $gellarImages[] = getSettingImageLink('galleryImage'.$i);
         }
         $list = [
             'general' => [
@@ -67,6 +68,11 @@ class StaticPagesController extends Controller
                 'image' => getSettingImageLink('detailsImage'),
                 'details' => $details,
             ],
+            'gallery' => [
+                'title' => getSettingValue('galleryTitle_'.$lang),
+                'description' => getSettingValue('galleryDescription_'.$lang),
+                'images' => $gellarImages,
+            ]
         ];
         $resArr = [
             'status' => true,
@@ -124,6 +130,41 @@ class StaticPagesController extends Controller
                 'title' => getSettingValue('aboutusTitle_'.$lang),
                 'description' => getSettingValue('aboutusDes_'.$lang),
                 'image' => getSettingImageLink('aboutusImage'),
+            ]
+        ];
+        $resArr = [
+            'status' => true,
+            'data' => $list
+        ];
+        return response()->json($resArr);
+    }
+    public function staticData(Request $request){
+        $lang = $request->header('lang');
+        if ($lang == '') {
+            $resArr = [
+                'status' => false,
+                'message' => trans('api.pleaseSendLangCode'),
+            ];
+            return response()->json($resArr);
+        }
+        $list = [
+            'seo' => [
+                'title' => getSettingValue('siteTitle_' . $lang),
+                'description' => getSettingValue('siteDescription_'.$lang),
+                'logo' => getSettingImageLink('logo'),
+            ],
+            'footer' => [
+                'email' => getSettingValue('contactusEmail'),
+                'phone' => getSettingValue('contactusPhone'),
+                'address' => getSettingValue('aboutusTitle_'.$lang),
+                'facebook' => getSettingValue('facebook'),
+                'youtube' => getSettingValue('youtube'),
+                'twitter' => getSettingValue('twitter'),
+                'instagram' => getSettingValue('instagram'),
+                'linkedin' => getSettingValue('linkedin'),
+                'whatsapp' => getSettingValue('whatsapp'),
+                'tiktok' => getSettingValue('tiktok'),
+                'snapchat' => getSettingValue('snapchat'),
             ]
         ];
         $resArr = [

@@ -430,4 +430,5 @@ return [
     'galleryDescription_ar' => 'وصف المعرض بالعربية',
     'galleryDescription_en' => 'وصف المعرض بالإنجليزية',
     'testimonials' => 'التوصيات',
+    'someThingWentWrong' => 'حدث خطأ ما',
 ];
