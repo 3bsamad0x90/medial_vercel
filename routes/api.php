@@ -8,6 +8,7 @@ use App\Http\Controllers\api\PagesController;
 use App\Http\Controllers\api\ProductsController;
 use App\Http\Controllers\api\ReviewController;
 use App\Http\Controllers\api\StaticPagesController;
+use App\Http\Controllers\api\TestimonialsController;
 use App\Http\Controllers\api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,9 @@ Route::group(['middleware'=> ['api']], function () {
     //products
     Route::get('/products',[ProductsController::class, 'products']);
     Route::get('/products/{product}/details',[ProductsController::class, 'productDetails']);
+    //Testimonials
+    Route::get('/testimonials',[TestimonialsController::class, 'testimonials']);
+    Route::get('/testimonials/{testimonial}/details',[TestimonialsController::class, 'testimonialsDetails']);
 
     //Contact Us
     Route::post('/sendContactMessage',[ContactMessagesController::class, 'sendContactMessage']);
