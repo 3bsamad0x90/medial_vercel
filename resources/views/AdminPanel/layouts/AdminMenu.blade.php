@@ -30,11 +30,11 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item @if(isset($active) && $active == 'products') active @endif">
-                <a class="d-flex align-items-center" href="{{route('admin.products')}}">
+            <li class="nav-item @if(isset($active) && $active == 'testimonials') active @endif">
+                <a class="d-flex align-items-center" href="{{route('admin.testimonials')}}">
                     <i data-feather='cpu'></i>
-                    <span class="menu-title text-truncate" data-i18n="{{trans('common.products')}}">
-                        المنتجات
+                    <span class="menu-title text-truncate" data-i18n="{{trans('common.testimonials')}}">
+                        {{trans('common.testimonials')}}
                     </span>
                 </a>
             </li>

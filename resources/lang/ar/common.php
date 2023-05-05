@@ -429,4 +429,5 @@ return [
     'galleryTitle_ar' => 'عنوان المعرض بالعربية',
     'galleryDescription_ar' => 'وصف المعرض بالعربية',
     'galleryDescription_en' => 'وصف المعرض بالإنجليزية',
+    'testimonials' => 'التوصيات',
 ];

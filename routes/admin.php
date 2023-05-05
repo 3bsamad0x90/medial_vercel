@@ -3,13 +3,11 @@
 use App\Http\Controllers\admin\AdminPanelController;
 use App\Http\Controllers\admin\AdminUsersController;
 use App\Http\Controllers\admin\BlogsController;
-use App\Http\Controllers\admin\ClientUsersController;
 use App\Http\Controllers\admin\ContactMessagesController;
-use App\Http\Controllers\admin\OrdersController;
 use App\Http\Controllers\admin\PagesController;
-use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\RolesController;
 use App\Http\Controllers\admin\SettingsController;
+use App\Http\Controllers\admin\TestimonialsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -64,12 +62,12 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
 
 
 
-    Route::group(['prefix'=>'products'], function(){
-        Route::get('/',[ProductsController::class, 'index'])->name('admin.products');
-        Route::post('/create', [ProductsController::class, 'store'])->name('products.store');
-        Route::post('/{product}/edit', [ProductsController::class, 'update'])->name('products.update');
-        Route::post('/{product}/updateImages', [ProductsController::class, 'updateImages'])->name('products.updateImages');
-        Route::get('/{product}/delete', [ProductsController::class, 'delete'])->name('products.delete');
+    Route::group(['prefix'=> 'testimonials'], function(){
+        Route::get('/',[TestimonialsController::class, 'index'])->name('admin.testimonials');
+        Route::post('/create', [TestimonialsController::class, 'store'])->name('testimonials.store');
+        Route::post('/{testimonial}/edit', [TestimonialsController::class, 'update'])->name('testimonials.update');
+        Route::post('/{testimonial}/updateImages', [TestimonialsController::class, 'updateImages'])->name('testimonials.updateImages');
+        Route::get('/{testimonial}/delete', [TestimonialsController::class, 'delete'])->name('testimonials.delete');
     });
     Route::group(['prefix'=>'blogs'], function(){
         Route::get('/',[BlogsController::class, 'index'])->name('admin.blogs');

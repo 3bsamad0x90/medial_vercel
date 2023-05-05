@@ -22,37 +22,41 @@
                 <table class="table table-bordered mb-2">
                     <thead class="text-center">
                         <tr>
-                            <th scope="col">إسم المنتج</th>
-                            <th scope="col">الوصف</th>
-                            <th scope="col">الصورة</th>
-                            <th>الإجراءات</th>
+                            <th scope="col">{{ trans('common.name') }}</th>
+                            <th scope="col">{{ trans('common.description') }}</th>
+                            <th scope="col">{{ trans('common.address') }}</th>
+                            <th scope="col">{{ trans('common.image') }}</th>
+                            <th>{{ trans('common.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        @forelse($products as $product)
-                        <tr id="row_{{$product->id}}">
+                        @forelse($testimonials as $testimonial)
+                        <tr id="row_{{$testimonial->id}}">
                             <td>
-                                {{$product['title_ar']}}<br>
-                                {{$product['title_en']}}
+                                {{$testimonial['name_ar']}}<br>
+                                {{$testimonial['name_en']}}
                             </td>
                             <td style="word-break: break-word;">
-                                {{$product->description_ar}}<br>
-                                {{ $product->description_en }}
+                                {{$testimonial->description_ar}}<br>
+                                {{ $testimonial->description_en }}
+                            </td>
+                            <td style="word-break: break-word;">
+                                {{$testimonial->address}}
                             </td>
                             <td>
-                                <img src="{{ $product->photoLink() }}" width="80px" height="80px" class="round border">
+                                <img src="{{ $testimonial->photoLink() }}" width="80px" height="80px" class="round border">
 
                             </td>
                             <td class="text-center">
-                                <a href="javascript:;" data-bs-target="#editproduct{{$product->id}}"
+                                <a href="javascript:;" data-bs-target="#edittestimonial{{$testimonial->id}}"
                                     data-bs-toggle="modal" class="btn btn-icon btn-info m-1" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" data-bs-original-title="{{trans('common.edit')}}">
+                                    data-bs-placement="top" data-bs-original-name="{{trans('common.edit')}}">
                                     <i data-feather='edit'></i>
                                 </a>
-                                <?php $delete = route('products.delete',['product'=>$product->id]); ?>
+                                <?php $delete = route('testimonials.delete',['testimonial'=>$testimonial->id]); ?>
                                 <button type="button" class="btn btn-icon btn-danger m-1"
-                                    onclick="confirmDelete('{{$delete}}','{{$product->id}}')" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" data-bs-original-title="{{trans('common.delete')}}">
+                                    onclick="confirmDelete('{{$delete}}','{{$testimonial->id}}')" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" data-bs-original-name="{{trans('common.delete')}}">
                                     <i data-feather='trash-2'></i>
                                 </button>
                             </td>
@@ -68,8 +72,8 @@
                 </table>
             </div>
 
-            @foreach($products as $product)
-            <div class="modal fade text-md-start" id="editproduct{{$product->id}}" tabindex="-1" aria-hidden="true">
+            @foreach($testimonials as $testimonial)
+            <div class="modal fade text-md-start" id="edittestimonial{{$testimonial->id}}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-edit-user">
                     <div class="modal-content">
                         <div class="modal-header bg-transparent">
@@ -79,30 +83,34 @@
                             <div class="text-center mb-2">
                                 <h1 class="mb-1">{{trans('common.edit')}}</h1>
                             </div>
-                            {{Form::open(['url'=>route('products.update',['product'=>$product->id]),
-                            'id'=>'editproductForm', 'class'=>'row gy-1 pt-75', 'files'=>true])}}
+                            {{Form::open(['url'=>route('testimonials.update',['testimonial'=>$testimonial->id]),
+                            'id'=>'edittestimonialForm', 'class'=>'row gy-1 pt-75', 'files'=>true])}}
                             <div class="col-12 col-md-6">
-                                <label class="form-label" for="title_ar">إسم المنتج بالعربية</label>
-                                {{Form::text('title_ar',$product->title_ar,['id'=>'title_ar',
+                                <label class="form-label" for="name_ar">{{ trans('common.name_ar') }}</label>
+                                {{Form::text('name_ar',$testimonial->name_ar,['id'=>'name_ar',
                                 'class'=>'form-control'])}}
                             </div>
                             <div class="col-12 col-md-6">
-                                <label class="form-label" for="title_en">إسم المنتج بالإنجليزية</label>
-                                {{Form::text('title_en',$product->title_en,['id'=>'title_en',
+                                <label class="form-label" for="name_en">{{ trans('common.name_en') }}</label>
+                                {{Form::text('name_en',$testimonial->name_en,['id'=>'name_en',
                                 'class'=>'form-control'])}}
                             </div>
                             <div class="col-12 col-md-12">
-                                <label class="form-label" for="description_ar">وصف المنتج بالعربية</label>
-                                {{Form::textarea('description_ar',$product->description_ar,['id'=>'description_ar',
+                                <label class="form-label" for="description_ar">{{ trans('common.description_ar') }}</label>
+                                {{Form::textarea('description_ar',$testimonial->description_ar,['id'=>'description_ar',
                                 'class'=>'form-control', 'rows'=>3])}}
                             </div>
                             <div class="col-12 col-md-12">
-                                <label class="form-label" for="description_en">وصف المنتج بالإنجليزية</label>
-                                {{Form::textarea('description_en',$product->description_en,['id'=>'description_en',
+                                <label class="form-label" for="description_en">{{ trans('common.description_en') }}</label>
+                                {{Form::textarea('description_en',$testimonial->description_en,['id'=>'description_en',
                                 'class'=>'form-control', 'rows'=>3])}}
                             </div>
                             <div class="col-12 col-md-12">
-                                <label class="form-label" for="image">صورة المنتج</label>
+                                <label class="form-label" for="address">{{ trans('common.address') }}</label>
+                                {{Form::text('address',$testimonial->address,['id'=>'address', 'class'=>'form-control'])}}
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <label class="form-label" for="image">{{ trans('common.image') }}</label>
                                 {{Form::file('image',['id'=>'image', 'class'=>'form-control'])}}
                             </div>
 
@@ -119,7 +127,7 @@
                 </div>
             </div>
             @endforeach
-            {{ $products->links('vendor.pagination.default') }}
+            {{ $testimonials->links('vendor.pagination.default') }}
         </div>
     </div>
 </div>
@@ -130,11 +138,11 @@
 @stop
 
 @section('page_buttons')
-<a href="javascript:;" data-bs-target="#createproduct" data-bs-toggle="modal" class="btn btn-primary">
+<a href="javascript:;" data-bs-target="#createtestimonial" data-bs-toggle="modal" class="btn btn-primary">
     إضافة جديد
 </a>
 
-<div class="modal fade text-md-start" id="createproduct" tabindex="-1" aria-hidden="true">
+<div class="modal fade text-md-start" id="createtestimonial" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-edit-user">
         <div class="modal-content">
             <div class="modal-header bg-transparent">
@@ -144,29 +152,31 @@
                 <div class="text-center mb-2">
                     <h1 class="mb-1">إضافة جديد</h1>
                 </div>
-                {{Form::open(['url'=>route('products.store'), 'id'=>'createproductForm', 'class'=>'row gy-1 pt-75',
+                {{Form::open(['url'=>route('testimonials.store'), 'id'=>'createtestimonialForm', 'class'=>'row gy-1 pt-75',
                 'files'=>true])}}
                 <div class="col-12 col-md-6">
-                    <label class="form-label" for="title_ar">إسم المنتج بالعربية</label>
-                    {{Form::text('title_ar','',['id'=>'title_ar', 'class'=>'form-control'])}}
+                    <label class="form-label" for="name_ar">{{ trans('common.name_ar') }}</label>
+                    {{Form::text('name_ar','',['id'=>'name_ar', 'class'=>'form-control'])}}
                 </div>
                 <div class="col-12 col-md-6">
-                    <label class="form-label" for="title_en">إسم المنتج بالإنجليزية</label>
-                    {{Form::text('title_en','',['id'=>'title_en', 'class'=>'form-control'])}}
+                    <label class="form-label" for="name_en">{{ trans('common.name_en') }}</label>
+                    {{Form::text('name_en','',['id'=>'name_en', 'class'=>'form-control'])}}
                 </div>
 
                 <div class="col-12 col-md-12">
-                    <label class="form-label" for="description_ar">وصف المنتج بالعربية</label>
+                    <label class="form-label" for="description_ar">{{ trans('common.description_ar') }}</label>
                     {{Form::textarea('description_ar','',['id'=>'description_ar', 'class'=>'form-control', 'rows'=>3])}}
                 </div>
                 <div class="col-12 col-md-12">
-                    <label class="form-label" for="description_en">وصف المنتج بالإنجليزية</label>
+                    <label class="form-label" for="description_en">{{ trans('common.description_en') }}</label>
                     {{Form::textarea('description_en','',['id'=>'description_en', 'class'=>'form-control', 'rows'=>3])}}
                 </div>
-
-
                 <div class="col-12 col-md-12">
-                    <label class="form-label" for="image">صورة المنتج</label>
+                    <label class="form-label" for="address">{{ trans('common.address') }}</label>
+                    {{Form::text('address','',['id'=>'address', 'class'=>'form-control'])}}
+                </div>
+                <div class="col-12 col-md-12">
+                    <label class="form-label" for="image">{{ trans('common.image') }}</label>
                     {{Form::file('image',['id'=>'image', 'class'=>'form-control'])}}
                 </div>
 

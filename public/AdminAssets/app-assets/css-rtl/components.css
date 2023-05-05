@@ -8,7 +8,6 @@ html {
     * Blank page
     */
 }
-
 html body {
   height : 100%;
   background-color : #F8F8F8;
@@ -1232,7 +1231,7 @@ footer.footer-border {
 .main-menu .navbar-header {
   height : 100%;
   width : 260px;
-  height : 9.45rem !important;
+  height : 4.45rem !important;
   position : relative;
   padding : 0.35rem 1.64rem 0.3rem 1rem;
   -webkit-transition : 300ms ease all, background 0s;

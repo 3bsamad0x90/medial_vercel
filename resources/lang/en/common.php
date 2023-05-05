@@ -351,5 +351,6 @@ return [
     'galleryDescription_en' => 'Gallery Description in English',
     'galleryTitle_en' => 'Gallery Title in English',
     'galleryTitle_ar' => 'Gallery Title in Arabic',
+    'testimonials' => 'Testimonials',
 ];
 

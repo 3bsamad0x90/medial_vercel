@@ -17,7 +17,7 @@
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
                                 <a href="{{route('admin.settings.general')}}" class="text-white">
-                                    الإعدادات
+                                    {{ trans('common.setting') }}
                                 </a>
                             </div>
                         </div>
@@ -25,8 +25,8 @@
                     <div class="col-md-6">
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
-                                <a href="{{route('admin.products')}}" class="text-white">
-                                    المنتجات
+                                <a href="{{route('admin.testimonials')}}" class="text-white">
+                                    {{ trans('common.testimonials') }}
                                 </a>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
                                 <a href="{{route('admin.blogs')}}" class="text-white">
-                                    المدونة
+                                    {{trans('common.blogs')}}
                                 </a>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
                                 <a href="{{route('admin.contactmessages')}}" class="text-white">
-                                    رسائل التواصل
+                                    {{ trans('common.contactMessages') }}
                                 </a>
                             </div>
                         </div>
