@@ -352,6 +352,10 @@ return [
     'galleryTitle_en' => 'Gallery Title in English',
     'galleryTitle_ar' => 'Gallery Title in Arabic',
     'testimonials' => 'Testimonials',
+    'mainPage'  => 'Main Page',
+    'testimonialsDescription_ar' => 'Testimonials Description in Arabic',
+    'features' => 'Features',
+    'maxNumber' => 'Max number of images to display: 10',
 
 ];
 

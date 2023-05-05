@@ -431,4 +431,8 @@ return [
     'galleryDescription_en' => 'وصف المعرض بالإنجليزية',
     'testimonials' => 'التوصيات',
     'someThingWentWrong' => 'حدث خطأ ما',
+    'mainPages' => 'الصفحات الرئيسية',
+    'mainPage' => 'الصفحة الرئيسية',
+    'features' => 'مميزاتنا',
+    'maxNumber' =>'أقصى عدد للصور المتحركه هو 10 صور',
 ];

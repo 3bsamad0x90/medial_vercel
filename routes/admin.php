@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminPanelController;
 use App\Http\Controllers\admin\AdminUsersController;
 use App\Http\Controllers\admin\BlogsController;
 use App\Http\Controllers\admin\ContactMessagesController;
+use App\Http\Controllers\admin\mainPageController;
 use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\RolesController;
 use App\Http\Controllers\admin\SettingsController;
@@ -75,6 +76,12 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
         Route::post('/{blog}/edit', [BlogsController::class, 'update'])->name('blogs.update');
         Route::post('/{blog}/updateImages', [BlogsController::class, 'updateImages'])->name('blogs.updateImages');
         Route::get('/{blog}/delete', [BlogsController::class, 'delete'])->name('blogs.delete');
+    });
+    Route::group(['prefix'=> 'mainPage'], function(){
+        Route::get('/',[mainPageController::class, 'index'])->name('admin.mainPages');
+        Route::post('/create', [mainPageController::class, 'store'])->name('mainPages.store');
+        Route::post('/{mainPage}/edit', [mainPageController::class, 'update'])->name('mainPages.update');
+        Route::get('/{mainPage}/delete', [mainPageController::class, 'delete'])->name('mainPages.delete');
     });
 
 });

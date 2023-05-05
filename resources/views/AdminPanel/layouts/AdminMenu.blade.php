@@ -18,7 +18,7 @@
                 <a class="d-flex align-items-center" href="{{route('admin.index')}}">
                     <i data-feather="home"></i>
                     <span class="menu-title text-truncate" data-i18n="{{trans('common.PanelHome')}}">
-                       الرئيسية
+                       {{ trans('common.PanelHome') }}
                     </span>
                 </a>
             </li>
@@ -26,7 +26,15 @@
                 <a class="d-flex align-items-center" href="{{route('admin.settings.general')}}">
                     <i data-feather='settings'></i>
                     <span class="menu-title text-truncate" data-i18n="{{trans('common.setting')}}">
-                        الإعدادات
+                        {{ trans('common.setting') }}
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item @if(isset($active) && $active == 'mainPage') active @endif">
+                <a class="d-flex align-items-center" href="{{route('admin.mainPages')}}">
+                    <i data-feather='sliders'></i>
+                    <span class="menu-title text-truncate" data-i18n="{{trans('common.mainPage')}}">
+                        {{ trans('common.mainPages') }}
                     </span>
                 </a>
             </li>

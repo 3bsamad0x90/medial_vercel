@@ -1,7 +1,5 @@
 @extends('AdminPanel.layouts.master')
 @section('content')
-
-
     <!-- Bordered table start -->
     <div class="row" id="table-bordered">
         <div class="col-12">
@@ -14,14 +12,14 @@
                                 <i data-feather="home"></i> {{trans('common.generalSettings')}}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" id="mainPage-tab" data-bs-toggle="tab" href="#mainPage" aria-controls="mainPage" role="tab" aria-selected="false">
                                 <i data-feather="book-open"></i> الصفحة الرئيسية
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" id="features-tab" data-bs-toggle="tab" href="#features" aria-controls="features" role="tab" aria-selected="false">
-                                <i data-feather="heart"></i>مميزتنا
+                                <i data-feather="heart"></i>{{ trans('common.features') }}
                             </a>
                         </li>
                         <li class="nav-item">
