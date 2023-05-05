@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,6 +36,7 @@ class Testimonial extends Model
             'description' => $this['description_' . $lang],
             'address' => $this->address,
             'image' => $this->photoLink(),
+            'date' => Carbon::parse($this->created_at)->format('M d, Y'),
         ];
         return $data;
     }

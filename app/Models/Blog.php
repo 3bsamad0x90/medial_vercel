@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,7 +36,8 @@ class Blog extends Model
             'title' => $this['title_'.$lang],
             'description' => $this['description_' . $lang],
             'image' => $this->photoLink(),
-            'images' => $images
+            'images' => $images,
+            'date' => Carbon::parse($this->created_at)->format('M d, Y'),
         ];
         return $data;
     }
