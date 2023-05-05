@@ -31,7 +31,7 @@ class Testimonial extends Model
     {
         $data = [
             'id' => $this->id,
-            'title' => $this['title_' . $lang],
+            'name' => $this['name_' . $lang],
             'description' => $this['description_' . $lang],
             'address' => $this->address,
             'image' => $this->photoLink(),

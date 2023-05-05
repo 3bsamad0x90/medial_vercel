@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\TestimonialsResource;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class TestimonialsController extends Controller
 {
-    public function products(Request $request){
+    public function testimonials(Request $request){
         $lang = $request->header('lang');
         if ($lang == '') {
             $resArr = [
@@ -19,21 +18,18 @@ class TestimonialsController extends Controller
             ];
             return response()->json($resArr);
         }
-        $products = Products::orderBy('id', 'asc')->get();
-        if($products){
-            $resArr = [
-                'status' => true,
-                'data' => ProductsResource::collection($products),
-            ];
-            return response()->json($resArr);
+        $testimonials = Testimonial::orderBy('id', 'asc')->get();
+        $resArr = [];
+        foreach($testimonials as $testimonial){
+            $resArr [] = $testimonial->apiData($lang);
+        }
+        if($testimonials){
+            return response()->json(['status' => true, 'data'=> $resArr], Response::HTTP_OK);
         }else{
-            $resArr = [
-                'status' => false,
-            ];
-            return response()->json($resArr);
+            return response()->json(['status'=> false, 'data' => trans('common.nothingToView')], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-    public function productDetails(Request $request, Products $product){
+    public function testimonialsDetails(Request $request, Testimonial $testimonial){
         $lang = $request->header('lang');
         if ($lang == '') {
             $resArr = [
@@ -43,48 +39,10 @@ class TestimonialsController extends Controller
             ];
             return response()->json($resArr);
         }
-        if($product){
-            $resArr = [
-                'status' => true,
-                'data' => new ProductsResource($product),
-            ];
-            return response()->json($resArr, Response::HTTP_OK);
+        if($testimonial){
+            return response()->json(['status'=> true, 'data' =>$testimonial->apiData($lang) ], Response::HTTP_OK);
         }else{
-            $resArr = [
-                'status' => false,
-                'data' => []
-            ];
-            return response()->json($resArr, Response::HTTP_NOT_FOUND);
+            return response()->json(['status' => true, 'data' => trans('common.nothingToView') ], Response::HTTP_NOT_FOUND);
         }
-    }
-    public function review(Request $request, Products $product){
-      $lang = $request->header('lang');
-      if ($lang == '') {
-        $resArr = [
-          'status' => false,
-          'message' => trans('api.pleaseSendLangCode'),
-          'data' => []
-        ];
-        return response()->json($resArr);
-      }
-      $request->validate([
-        'review' => 'required',
-      ]);
-      $data = $request->except('_token');
-      $product['review'] = $data['review'];
-      $review = $product->update();
-      if ($review) {
-        $resArr = [
-          'status' => true,
-          'data' => new ProductsResource($product),
-        ];
-        return response()->json($resArr, Response::HTTP_OK);
-      } else {
-        $resArr = [
-          'status' => false,
-          'data' => []
-        ];
-        return response()->json($resArr, Response::HTTP_NOT_FOUND);
-      }
     }
 }
