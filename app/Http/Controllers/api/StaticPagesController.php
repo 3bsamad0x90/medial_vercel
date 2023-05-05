@@ -52,12 +52,6 @@ class StaticPagesController extends Controller
                 'description' => getSettingValue('siteDescription'),
                 'logo' => getSettingImageLink('logo'),
             ],
-            'mainpage' => [
-                'title' => getSettingValue('mainPageTitle_'.$lang),
-                'description' => getSettingValue('mainPageTitle_'.$lang),
-                'image1' => getSettingImageLink('mainPageImage1'),
-                'image2' => getSettingImageLink('mainPageImage2'),
-            ],
             'features' => [
                 'title' => getSettingValue('featureTitle_'.$lang),
                 'description' => getSettingValue('featureDes_'.$lang),

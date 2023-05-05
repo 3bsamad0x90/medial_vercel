@@ -25,4 +25,13 @@ class mainPage extends Model
         }
         return $image;
     }
+    public function apiData($lang)
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this['title_'.$lang],
+            'description' => $this['description_'.$lang],
+            'image' => $this->photoLink(),
+        ];
+    }
 }

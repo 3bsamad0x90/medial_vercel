@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\BlogsController;
 use App\Http\Controllers\api\ContactMessagesController;
+use App\Http\Controllers\api\mainPageController;
 use App\Http\Controllers\api\ProductsController;
 use App\Http\Controllers\api\StaticPagesController;
 use App\Http\Controllers\api\TestimonialsController;
@@ -37,6 +38,8 @@ Route::group(['middleware'=> ['api']], function () {
     //Blog
     Route::get('/media',[BlogsController::class, 'index']);
     Route::get('/media/{media}',[BlogsController::class, 'show']);
+    //main page
+    Route::get('/mainpage',[mainPageController::class, 'index']);
 
     //Contact Us
     Route::post('/sendContactMessage',[ContactMessagesController::class, 'sendContactMessage']);
