@@ -24,7 +24,6 @@ class mainPageController extends Controller
         $data = [];
         foreach($mainPages as $mainPage){
             $data [] = $mainPage->apiData($lang);
-
         }
         return response()->json(['status'=> true, 'data'=>$data], Response::HTTP_OK);
 

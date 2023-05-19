@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\FAQs;
-use App\Models\Settings;
-use App\Models\Currencies;
 use App\Models\Countries;
+use App\Models\Currencies;
+use App\Models\FAQs;
+use App\Models\mainPage;
 use App\Models\Pages;
+use App\Models\Settings;
+use Illuminate\Http\Request;
 use Response;
 
 class StaticPagesController extends Controller
@@ -46,12 +47,17 @@ class StaticPagesController extends Controller
         for($i = 1; $i <=6 ; $i++ ){
           $gellarImages[] = getSettingImageLink('galleryImage'.$i);
         }
+        $mainPages = mainPage::get();
+        $slider = [];
+        foreach($mainPages as $mainPage){
+            $slider [] = $mainPage->apiData($lang);
+        }
         $list = [
-            'general' => [
-                'title' => getSettingValue('siteTitle_'.$lang),
-                'description' => getSettingValue('siteDescription'),
-                'logo' => getSettingImageLink('logo'),
-            ],
+            // 'general' => [
+            //     'title' => getSettingValue('siteTitle_'.$lang),
+            //     'description' => getSettingValue('siteDescription'),
+            //     'logo' => getSettingImageLink('logo'),
+            // ],
             'features' => [
                 'title' => getSettingValue('featureTitle_'.$lang),
                 'description' => getSettingValue('featureDes_'.$lang),
@@ -66,7 +72,8 @@ class StaticPagesController extends Controller
                 'title' => getSettingValue('galleryTitle_'.$lang),
                 'description' => getSettingValue('galleryDescription_'.$lang),
                 'images' => $gellarImages,
-            ]
+            ],
+            'slider' => $slider
         ];
         $resArr = [
             'status' => true,

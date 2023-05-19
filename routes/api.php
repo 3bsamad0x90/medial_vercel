@@ -39,7 +39,7 @@ Route::group(['middleware'=> ['api']], function () {
     Route::get('/media',[BlogsController::class, 'index']);
     Route::get('/media/{media}',[BlogsController::class, 'show']);
     //main page
-    Route::get('/mainpage',[mainPageController::class, 'index']);
+    Route::get('/slider',[mainPageController::class, 'index']);
 
     //Contact Us
     Route::post('/sendContactMessage',[ContactMessagesController::class, 'sendContactMessage']);
