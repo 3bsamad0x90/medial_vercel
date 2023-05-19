@@ -2,11 +2,11 @@
 <div class="row">
 
   <div class="col-12 col-md-6">
-    <label class="form-label" for="contactusEmail">البريد الإلكتروني</label>
+    <label class="form-label" for="contactusEmail">{{ trans('common.email') }}</label>
     {{Form::text('contactusEmail',getSettingValue('contactusEmail'),['id'=>'contactusEmail','class'=>'form-control'])}}
   </div>
   <div class="col-12 col-md-6">
-    <label class="form-label" for="contactusPhone">الهاتف</label>
+    <label class="form-label" for="contactusPhone">{{ trans('common.phone') }}</label>
     {{Form::text('contactusPhone',getSettingValue('contactusPhone'),['id'=>'contactusPhone','class'=>'form-control'])}}
   </div>
   <div class="col-12 col-md-6">

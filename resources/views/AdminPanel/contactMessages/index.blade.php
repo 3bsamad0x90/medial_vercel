@@ -13,9 +13,9 @@
                     <table class="table table-bordered mb-2">
                         <thead>
                             <tr>
-                                <th>الموضوع</th>
-                                <th>الحالة</th>
-                                <th class="text-center">الإجراءات</th>
+                                <th>{{ trans('common.subject') }}</th>
+                                <th>{{ trans('common.status') }}</th>
+                                <th class="text-center">{{ trans('common.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                             @empty
                                 <tr>
                                     <td colspan="5" class="p-3 text-center ">
-                                        <h2>لا يوجد أي بيانات لعرضها الآن</h2>
+                                        <h2>{{ trans('common.nothingToView') }}</h2>
                                     </td>
                                 </tr>
                             @endforelse

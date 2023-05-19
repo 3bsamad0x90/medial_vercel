@@ -84,9 +84,9 @@ class AdminPanelController extends Controller
         // return $data;
         if ($request->photo != '') {
             if (auth()->user()->photo != '') {
-                delete_image('users/'.auth()->user()->id , auth()->user()->photo);
+                delete_image('uploads/users/'.auth()->user()->id , auth()->user()->photo);
             }
-            $data['photo'] = upload_image_without_resize('users/'.auth()->user()->id , $request->photo );
+            $data['photo'] = upload_image('users/'.auth()->user()->id , $request->photo );
         }
 
         $update = User::find(auth()->user()->id)->update($data);

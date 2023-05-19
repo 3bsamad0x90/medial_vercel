@@ -24,8 +24,8 @@
                             <tr>
                                 <th scope="col">{{ trans('common.title') }}</th>
                                 <th scope="col">{{ trans('common.description') }}</th>
-                                <th scope="col">الصورة</th>
-                                <th>الإجراءات</th>
+                                <th scope="col">{{ trans('common.images') }}</th>
+                                <th>{{ trans('common.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -101,7 +101,7 @@
                                         {{Form::file('image',['id'=>'image', 'class'=>'form-control'])}}
                                     </div>
                                     <div class="col-12 text-center mt-2 pt-50">
-                                        <button type="submit" class="btn btn-primary me-1">حفظ التغييرات</button>
+                                        <button type="submit" class="btn btn-primary me-1">{{ trans('common.Save changes') }}</button>
                                         <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
                                             {{trans('common.Cancel')}}
                                         </button>
@@ -141,7 +141,7 @@
                             @endforeach
                         @endif
                         <div class="col-12 col-md-12">
-                          <label class="form-label" for="images">الصور</label>
+                          <label class="form-label" for="images">{{ trans('common.images') }}</label>
                           {{Form::file('images[]',['id'=>'images', 'class'=>'form-control', 'multiple'=>true])}}
                         </div>
                         @error('images')
@@ -149,7 +149,7 @@
                         @enderror
 
                         <div class="col-12 text-center mt-2 pt-50">
-                          <button type="submit" class="btn btn-primary me-1">حفظ التغييرات</button>
+                          <button type="submit" class="btn btn-primary me-1">{{ trans('common.Save changes') }}</button>
                           <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
                             إالغاء
                           </button>
@@ -169,7 +169,7 @@
 
 @section('page_buttons')
     <a href="javascript:;" data-bs-target="#createblog" data-bs-toggle="modal" class="btn btn-primary">
-        إضافة جديد
+        {{ trans('common.CreateNew') }}
     </a>
     <div class="modal fade text-md-start" id="createblog" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered modal-edit-user">
@@ -179,7 +179,7 @@
                 </div>
                 <div class="modal-body pb-5 px-sm-5 pt-50">
                     <div class="text-center mb-2">
-                        <h1 class="mb-1">إضافة جديد</h1>
+                        <h1 class="mb-1">{{ trans('common.CreateNew') }}</h1>
                     </div>
                     {{Form::open(['url'=>route('blogs.store'), 'id'=>'createblogForm', 'class'=>'row gy-1 pt-75', 'files'=>true])}}
                         <div class="col-12 col-md-6">
@@ -225,7 +225,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                         <div class="col-12 text-center mt-2 pt-50">
-                            <button type="submit" class="btn btn-primary me-1">حفظ التغييرات</button>
+                            <button type="submit" class="btn btn-primary me-1">{{ trans('common.Save changes') }}</button>
                             <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
                                 {{trans('common.Cancel')}}
                             </button>

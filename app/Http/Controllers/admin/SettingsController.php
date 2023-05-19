@@ -14,13 +14,13 @@ class SettingsController extends Controller
         $settings = Settings::get()->keyBy('key')->all();
         return view('AdminPanel.settings.index',
             [
-                'title' => trans('common.setting'),
-                'active' => 'setting',
+                'title' => trans('common.settings'),
+                'active' => 'settings',
                 'settings' => $settings,
                 'breadcrumbs' => [
                     [
                         'url' => '',
-                        'text' => trans('common.setting')
+                        'text' => trans('common.settings')
                     ]
                 ]
             ]);

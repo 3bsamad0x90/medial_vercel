@@ -356,6 +356,20 @@ return [
     'testimonialsDescription_ar' => 'Testimonials Description in Arabic',
     'features' => 'Features',
     'maxNumber' => 'Max number of images to display: 10',
-
+    'blogs' => 'Blogs',
+    'blog' => 'Blog',
+    'mainPages' => 'Main Page',
+    'description_en' => 'Description in English',
+    'description_ar' => 'Description in Arabic',
+    'details' => 'Details',
+    'icon' => 'Icon',
+    'detailsSection' => 'Details Section',
+    'number' => 'Number',
+    'text_ar' => 'Text in Arabic',
+    'text_en' => 'Text in English',
+    'images' => 'Images',
+    'description' => 'Description',
+    'Save changes' => 'Save Changes',
+    'settings' => 'Settings',
 ];
 

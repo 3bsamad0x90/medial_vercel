@@ -3,12 +3,6 @@
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <img src="{{getSettingImageLink('logo')}}" width="90%" />
-            <!-- <li class="nav-item nav-toggle">
-                <a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse">
-                    <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i>
-                    <i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i>
-                </a>
-            </li> -->
         </ul>
     </div>
     <div class="shadow-bottom"></div>
@@ -22,11 +16,11 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item @if(isset($active) && $active == 'setting') active @endif">
+            <li class="nav-item @if(isset($active) && $active == 'settings') active @endif">
                 <a class="d-flex align-items-center" href="{{route('admin.settings.general')}}">
                     <i data-feather='settings'></i>
-                    <span class="menu-title text-truncate" data-i18n="{{trans('common.setting')}}">
-                        {{ trans('common.setting') }}
+                    <span class="menu-title text-truncate" data-i18n="{{trans('common.settings')}}">
+                        {{ trans('common.settings') }}
                     </span>
                 </a>
             </li>

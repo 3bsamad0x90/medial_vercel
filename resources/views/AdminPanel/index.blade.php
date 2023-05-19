@@ -17,7 +17,7 @@
                         <div class="card bg-primary text-white text-center">
                             <div class="card-body">
                                 <a href="{{route('admin.settings.general')}}" class="text-white">
-                                    {{ trans('common.setting') }}
+                                    {{ trans('common.settings') }}
                                 </a>
                             </div>
                         </div>
